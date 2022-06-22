@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALZHEIMER'S DESEASE</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="dataTables.bootstrap5.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        *{padding: 0; margin: 0; box-sizing: border-box;}
+        html{
+            font-family: Arial, Helvetica, sans-serif; 
+            font-size: 20px;
+            background-image: url('backgroup.jpg');
+            background-repeat: no-repeat;
+            background-position: center top;    
+            background-attachment: fixed; 
+            background-size: 90%;
+        }
+        input{height: 35px; padding: 5px 5px; border-radius: 10px;}
+        h1{margin-bottom: 10px;}
+        button{padding: 10px; background: #000; color: #fff;}
+        button:hover{cursor: pointer; opacity: 0.5;}
+        table,th,tr,td{padding: 10px;}
+        #response{background: #1A243A; margin-top: 10px; padding: 16px;}
+        .bg-img{background-image: url("./img/x-ray.jpg"); background-repeat: no-repeat; background-size: cover; height: 900px; max-width: 900px; margin: 0 auto; padding: 0 16px; }
+        .form{margin: 10px auto 0 auto; padding: 16px; max-width: 900px; background: #fff;}
+        .form-group{padding: 10px;}
+        .block{display: block;}
+        .flex{display: flex; justify-content: space-around;}
+        .input{display: flex; justify-content: space-between;}
+        .check{
+            text-align: center;
+        }
+        .upload{background: crimson; color: #fff; padding: 10px; margin: 0 auto; border-radius: 10px;}
+        .upload-image{margin-top: 10px;}
+        .w-20{width: 20%;}
+        .col{
+            width: 50%;
+            /* margin-top: 50px; */
+        }
+        .col1{
+            width: 50%;
+            margin-top: 18px;
+        }
+        .w-80{
+            width: 70%;
+            margin-left: 20px;
+        }
+        .w-100{
+            width: 100%;
+            margin-top: 10px;
+        }
+        .mt-7{margin-top: 7px;}
+        .br-10{
+            border-radius: 10px;
+        }
+        .br{border-right: 1px solid #fff;}
+        .text-center{text-align: center;}
+        .text-white{color: #fff;}
+        .bill{display: none;}
+        .bill.open{display: block;}
+        .top{
+            border: 2px solid rgb(0, 0, 0);
+            padding: 5px;
+            border-radius: 15px;
+            height: 45%;
+        }
+        .h-50{
+            height: 18%;
+            background: #DCDCDC;
+            margin-bottom: 1%;
+            margin-top: 20px;
+        }
+        .h-60{
+            
+            height: 43%;
+            background: #B0C4DE;
+            margin-bottom: 1%;
+        }
+        .a{
+            margin-left: 20px;
+            font-size: 25px;
+            margin-top: 200px;
+            
+        }
+        .b{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        .t{
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        .r{
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+        .e{
+            margin-top: -6px;
+        }
+        .f{
+            margin-top: 10px;
+            width: 400px;
+            height: 128px;
+        }
+        .m{
+            margin-left: -50px;
+            margin-top: 20px;
+            width: 100px;
+        }
+        .reset{
+            /* margin-left: 80px; */
+            margin-top: 20px;
+            margin-right: -50px;
+            width: 100px;
+            color: aqua;
+        }
+        .c{
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body class="bg-img">
+    <div class="row h-50 top"> 
+        <h1 class="t">Final project: Artificial intelligence  - Mechatronics</h1>
+        <div class="c">
+            <em class="a">Students:</em>
+            <strong class="b">Nguyen Xuan Viet</strong> <br> 
+        </div>
+        <div class="c">
+            <em class="a">Instructor: </em> 
+            <strong class="b">Assoc. Prof Nguyen Truong Thinh</strong><br>
+        </div>
+    </div>
+    <fieldset class="form br-10 w-100 row h-60 top">
+        <h1 class="w-100 text-center">DETECTING PNEUMONIA</h1>
+        <div class="flex">
+            <div class="col">
+                <div class="form-group block">
+                    <div class="label r">
+                        <label for="username"><strong>Name: </strong></label>
+                    </div>
+                    <input class="w-80" type="text" placeholder="Your name here" name="username" id="username" onkeyup="document.getElementById('get-name').innerText = this.value">
+                </div>
+                <div class="form-group block">
+                    <div class="label r">
+                        <label for="age"><strong>Age: </strong></label>
+                    </div>
+                    <input class="w-80" type="number" placeholder="Your age here" name="age" id="age" onkeyup="document.getElementById('get-age').innerText = this.value">
+                </div>
+                <div class="form-group block">
+                    <div class="label r">
+                        <label for="gender"><strong>Gender: </strong></label>
+                    </div>
+                    <div class="flex w-80 r">
+                        <div class="input">
+                            <input type="radio" name="gender" id="gender1" value="1"><label class="mt-7" for="gender1">&nbsp;Male</label>
+                        </div>
+                        <div class="input">
+                            <input type="radio" name="gender" id="gender2" value="2"><label class="mt-7" for="gender2">&nbsp;Female</label>
+                        </div>
+                        <div class="input">
+                            <input type="radio" name="gender" id="gender3" value="3"><label class="mt-7" for="gender3">&nbsp;Other</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="check col1">
+                <h3 class="e">Upload your X-ray photo here</h3>
+                <div class="upload br-10 f">
+                    <input class="btn" type="file" id="sortpicture" name="sortpic" onchange="chooseFile(this)"
+                       accept="image/gif, image/jpeg, image/jpg, image/png">
+                    <div class="flex">
+                        <button class="br-10 m" id="upload">Upload</button>
+                        <button class="br-10 reset" onclick="window.location.reload();">RESET</button>
+                    </div>    
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div id="response" class="bill text-white br-10">
+        <header>
+            <span style="float: right;">Author: Nguyen Xuan Viet</span>
+            <div style="clear: both;"></div>
+            <h2 class="text-center">MEDICAL BILL</h1>
+        </header>
+        <main>
+            <div class="header">
+                <p>Name: <span id="get-name"></span></p>
+                <p>Age: <span id="get-age"></span></p>
+            </div>
+            <div class="main">
+                <table class="w-100">
+                    <thead style="background: #2F71C1; color: #fff">
+                        <tr>
+                            <th class="col">Your X-ray Photo</th>
+                            <th class="col">Your problem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="br text-center">
+                                <div class="upload-image">
+                                    <img src="" alt="" id="image" width="128" height="128" >
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="text">
+                                    <span id="check"></span>
+                                    <span id="desc"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
+                <p class="text-center">Thank you for your Business</p>
+            </footer>
+        </main>
+    </div>
+
+
+
+    <!-- Hiển thị hình ảnh -->
+    <script>
+        function chooseFile(fileInput){
+            if(fileInput.files && fileInput.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('#image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+    
+    <script>
+        $("#upload").on('click',function(){
+            const billModal = document.querySelector(".bill");
+            billModal.classList.add('open');
+
+            var file_data = $("#sortpicture").prop("files")[0];
+            var form_data = new FormData();
+            form_data.append("file", file_data);
+    
+            $.ajax({
+                url: 'http://127.0.0.1:8000/upload',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
+                success: function(api_resp){
+                    document.getElementById("check").innerHTML = api_resp;
+                    if(api_resp == 'None Demented'){
+                        document.getElementById("desc").innerText = "Congrats!";
+                    }
+                    else if(api_resp == 'Moderate Demented'){
+                        document.getElementById("desc").innerText = "Sorry!"
+                    }
+                },
+                error: function(err){
+                    alert(err.responseText);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
